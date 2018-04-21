@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("proov");
+
         Tron game = new Tron();
         Scanner sc = new Scanner(System.in);
         //Mängijate informatsiooni küsimine
