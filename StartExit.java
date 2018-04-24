@@ -26,11 +26,11 @@ public class StartExit extends Application {
         lava.setTitle( "Tron" );
 
         Group juur = new Group();
-        Scene scene = new Scene(juur, 500, 500);
+        Scene scene = new Scene(juur, 600, 600);
         scene.setFill(Color.BLACK);
-        VBox vbox = new VBox(10);
+        VBox vbox = new VBox(15);
         BorderPane bp = new BorderPane();
-        bp.setPrefSize(500,500);
+        bp.setPrefSize(600,600);
 
         lava.setScene(scene);
 
@@ -42,8 +42,6 @@ public class StartExit extends Application {
         //Alustamise nupu tegemine
         Button start = new Button("Start");
         start.setStyle("-fx-base: #0645aa;");
-        start.setLayoutX(200);
-        start.setLayoutY(200);
         Font font1 = Font.font( "Algerian", FontWeight.BOLD, 40 );
         start.setFont(font1);
 
@@ -57,9 +55,7 @@ public class StartExit extends Application {
         });
 
         //Lõpetamise nupu tegemine
-        Button exit = new Button("Exit");
-        exit.setLayoutX(200);
-        exit.setLayoutY(300);
+        Button exit = new Button("Exit");;
         exit.setStyle("-fx-base: #0645aa;");
         Font font2 = Font.font( "Algerian", FontWeight.BOLD, 40 );
         exit.setFont(font2);
@@ -86,7 +82,7 @@ public class StartExit extends Application {
         //Taustapildi lisamine
         ImageView imageView = new ImageView(image);
         Group juur = new Group(imageView);
-        Scene scene = new Scene(juur, 500, 500);
+        Scene scene = new Scene(juur, 600, 600);
         scene.setFill(Color.BLACK);
 
         //Mis juhtub kui vajutada enter või esc
