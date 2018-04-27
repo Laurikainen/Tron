@@ -14,21 +14,11 @@ public class Tron {
     private int x2 = 570;
     private int y2 = 570;
 
-    public int getX1() {
-        return x1;
-    }
-
-    public int getY1() {
-        return y1;
-    }
-
-    public int getX2() {
-        return x2;
-    }
-
-    public int getY2() {
-        return y2;
-    }
+    //get meetodid, et klassis snake saaks koordinaatide väärtuseid
+    public int getX1() { return x1; }
+    public int getY1() { return y1; }
+    public int getX2() { return x2; }
+    public int getY2() { return y2; }
 
     //Usside koordinaatide massiivi lisamine
     public void lisamine(int x1, int y1, int x2, int y2) {
@@ -36,8 +26,10 @@ public class Tron {
         ussid[x2/10][y2/10]=2;
     }
 
+    //Ussidele algussuuna andmine
+    //Hetkel pole kuskil kasutuses
     private void setSuund() {
-        //Ussidele algussuuna andmine
+
         float rand = (float) Math.random();
         if (rand > 0.5) {
             yks.setSuund("alla");
@@ -48,20 +40,13 @@ public class Tron {
         }
     }
 
-    public String oota() { //Liigutab usse edasi suunas, kuhu nad vaatavad
+    //Annab ussidele uued koordinaadid ja kontrollib, kas ussil on võimalik edasi liikuda
+    public String oota() {
         x1 += yks.getSpeedX();
         y1 += yks.getSpeedY();
         x2 += kaks.getSpeedX();
         y2 += kaks.getSpeedY();
 
-        String seis = stop(x1, y1, x2, y2);
-        if (!seis.equals("")){ //Kontrollime, kas uss tohib edasi liikuda
-            return seis;
-        }
-        return "";
-    }
-
-    private String stop(int x1, int y1, int x2, int y2){ //Usside kokkupõrkamise ja mängualast väljumise kontrollimine
         //Mängualas olemise kontroll
         if ((x1<0 || x1>590 || y1<0 || y1>590)&&(x2<0 || x2>590 || y2<0 || y2>590)) return "Jäite viiki";
         else if (x1<0 || x1>590 || y1<0 || y1>590) return "x1";
