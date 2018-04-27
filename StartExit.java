@@ -90,7 +90,8 @@ public class StartExit extends Application {
                 uus_mäng.start(lava);
             }
             else if (keyEvent.getCode() == KeyCode.ESCAPE) {
-                System.out.println("Tagasi");
+                StartExit uus_mäng = new StartExit();
+                uus_mäng.start(lava);
             }
         });
 
