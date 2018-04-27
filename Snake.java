@@ -19,7 +19,7 @@ public class Snake extends Application {
         lava.setTitle( "Tron" );
 
         //Mõlema ussi esimese ruudu tegemine
-        liikumine(20,20,570,570);
+        liikumine(570,570,20,20);
 
         //Kontrollimine, kas klaviatuuril on vajutatud kummagi ussi liikumiseks mõeldud nuppu
         scene.setOnKeyPressed(keyEvent -> {
@@ -65,10 +65,10 @@ public class Snake extends Application {
 
         //Esimese ussi keha joonistamine
         Rectangle rk1 = new Rectangle(x1,y1,10,10);
-        rk1.setFill(Color.GREEN);
+        rk1.setFill(Color.RED);
         //Teise ussi keha joonistamine
         Rectangle rk2 = new Rectangle(x2,y2,10,10);
-        rk2.setFill(Color.RED);
+        rk2.setFill(Color.GREEN);
 
         //Usside kordinaatide lisamine massiivi
         mäng.lisamine(x1, y1, x2, y2);

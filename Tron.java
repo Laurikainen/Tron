@@ -9,10 +9,10 @@ public class Tron {
     Snake uss = new Snake();
 
     //Mängijate alguskoordinaadid
-    private int x1 = 20;
-    private int y1 = 20;
-    private int x2 = 570;
-    private int y2 = 570;
+    private int x1 = 570;
+    private int y1 = 570;
+    private int x2 = 20;
+    private int y2 = 20;
 
     //get meetodid, et klassis snake saaks koordinaatide väärtuseid
     public int getX1() { return x1; }
