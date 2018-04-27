@@ -86,7 +86,8 @@ public class StartExit extends Application {
         //Mis juhtub kui vajutada enter või esc
         scene.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER) {
-                System.out.println("Edasi");
+                Snake uus_mäng = new Snake();
+                uus_mäng.start(lava);
             }
             else if (keyEvent.getCode() == KeyCode.ESCAPE) {
                 System.out.println("Tagasi");

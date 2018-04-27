@@ -47,11 +47,12 @@ public class Tron {
         x2 += kaks.getSpeedX();
         y2 += kaks.getSpeedY();
 
+        System.out.println(x1);
         //Mängualas olemise kontroll
-        if ((x1<0 || x1>590 || y1<0 || y1>590)&&(x2<0 || x2>590 || y2<0 || y2>590)) return "Jäite viiki";
-        else if (x1<0 || x1>590 || y1<0 || y1>590) return "x1";
-        else if (x2<0 || x2>590 || y2<0 || y2>590) return " x2";
-        else if (x2==x1 && y1==y2) return "Jäite viiki";
+        if ((x1<0 || x1>590 || y1<0 || y1>590)&&(x2<0 || x2>590 || y2<0 || y2>590)) throw new RuntimeException("Jäite viiki");
+        else if (x1<0 || x1>590 || y1<0 || y1>590) throw new RuntimeException("x1");
+        else if (x2<0 || x2>590 || y2<0 || y2>590) throw new RuntimeException("x2");
+        else if (x2==x1 && y1==y2) throw new RuntimeException("kokkupõrge");
 
         /*else { //Usside kokkupõrkamise kontroll
             if (ussid[y1/10][x1/10]==1 || ussid[y2/10][x2/10]==2) {
