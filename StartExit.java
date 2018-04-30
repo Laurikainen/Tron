@@ -32,7 +32,7 @@ public class StartExit extends Application {
 
         lava.setScene(scene);
 
-        //Mängu pealkirja lidamine
+        //Mängu pealkirja lisamine
         Label nimi = new Label("Tron");
         nimi.setFont(Font.font("Algerian", FontWeight.BOLD, 99));
         nimi.setTextFill(Color.WHITE);

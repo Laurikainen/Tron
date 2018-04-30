@@ -28,7 +28,7 @@ public class Tron {
 
     //Ussidele algussuuna andmine
     //Hetkel pole kuskil kasutuses
-    private void setSuund() {
+    public void setSuund() {
 
         float rand = (float) Math.random();
         if (rand > 0.5) {
