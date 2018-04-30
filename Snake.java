@@ -118,7 +118,7 @@ public class Snake extends Application {
             liikumine(game.getX1(), game.getY1(), game.getX2(), game.getY2());
             Thread thread = new Thread(() -> {
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(100);
                 } catch (InterruptedException exc) {
                     throw new Error("Unexpected interruption", exc);
                 }
