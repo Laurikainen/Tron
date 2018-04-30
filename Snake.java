@@ -47,7 +47,6 @@ public class Snake extends Application {
         Tron game = new Tron();
         game.setSuund();
 
-
         lava.setTitle( "Tron" );
 
         //Mõlema ussi esimese ruudu tegemine
@@ -55,7 +54,6 @@ public class Snake extends Application {
 
         //Kontrollimine, kas klaviatuuril on vajutatud kummagi ussi liikumiseks mõeldud nuppu
         scene.setOnKeyPressed(keyEvent -> {
-            System.out.println("Pressed");
             //Esimese ussi liikumine
             if (keyEvent.getCode() == KeyCode.UP) {
                 game.yks.setSuund("yles");
@@ -116,7 +114,6 @@ public class Snake extends Application {
     //Update after certain interval
     private void runner(Tron game){
         try {
-            System.out.println("Runnin'");
             game.oota();
             liikumine(game.getX1(), game.getY1(), game.getX2(), game.getY2());
             Thread thread = new Thread(() -> {

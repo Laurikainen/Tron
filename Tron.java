@@ -32,13 +32,14 @@ public class Tron {
 
         float rand = (float) Math.random();
         if (rand > 0.5) {
-            yks.setSuund("alla");
-            kaks.setSuund("yles");
+            yks.setSuund("yles");
+            kaks.setSuund("alla");
         } else {
-            yks.setSuund("parem");
-            kaks.setSuund("vasak");
+            yks.setSuund("vasak");
+            kaks.setSuund("parem");
         }
     }
+
 
     //Annab ussidele uued koordinaadid ja kontrollib, kas ussil on võimalik edasi liikuda
     public String oota() {
