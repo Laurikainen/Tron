@@ -18,6 +18,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Snake extends Application {
 
+    Tron game;
+
     Group juur = new Group();
     Scene scene = new Scene(juur,600, 600);
 
@@ -44,7 +46,7 @@ public class Snake extends Application {
 
     @Override
     public void start(Stage lava)  {
-        Tron game = new Tron();
+        game = new Tron();
         game.setSuund();
 
         lava.setTitle( "Tron" );
@@ -95,7 +97,6 @@ public class Snake extends Application {
     }
 
     public void liikumine(int x1, int y1, int x2, int y2) {
-        Tron mäng = new Tron();
 
         //Esimese ussi keha joonistamine
         Rectangle rk1 = new Rectangle(x1,y1,10,10);
@@ -105,7 +106,7 @@ public class Snake extends Application {
         rk2.setFill(Color.GREEN);
 
         //Usside kordinaatide lisamine massiivi
-        mäng.lisamine(x1, y1, x2, y2);
+        game.lisamine(x1, y1, x2, y2);
 
         //Juurele ristkülikute lisamine, et need oleks laval nähtavad
         juur.getChildren().addAll(rk1, rk2);
@@ -118,7 +119,7 @@ public class Snake extends Application {
             liikumine(game.getX1(), game.getY1(), game.getX2(), game.getY2());
             Thread thread = new Thread(() -> {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(1000);
                 } catch (InterruptedException exc) {
                     throw new Error("Unexpected interruption", exc);
                 }

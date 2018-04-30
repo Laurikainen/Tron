@@ -1,7 +1,7 @@
 public class Tron {
 
     //Kõiki mänguala ridu sisaldav list
-    private Integer[][] ussid = new Integer[60][60];
+    private int[][] ussid = new int[60][60];
 
     //Mängijad Player klassi jaoks
     Player yks = new Player();
@@ -43,6 +43,7 @@ public class Tron {
 
     //Annab ussidele uued koordinaadid ja kontrollib, kas ussil on võimalik edasi liikuda
     public String oota() {
+
         x1 += yks.getSpeedX();
         y1 += yks.getSpeedY();
         x2 += kaks.getSpeedX();
@@ -55,14 +56,16 @@ public class Tron {
         else if (x2<0 || x2>590 || y2<0 || y2>590) throw new RuntimeException("x2");
         else if (x2==x1 && y1==y2) throw new RuntimeException("kokkupõrge");
 
-        /*else { //Usside kokkupõrkamise kontroll
-            if (ussid[y1/10][x1/10]==1 || ussid[y2/10][x2/10]==2) {
-                return "error";
+
+        else { //Usside kokkupõrkamise kontroll
+            if (ussid[x1 / 10][y1 / 10] == 1 || ussid[x1 / 10][y1 / 10] == 2) {
+                throw new RuntimeException("Rohelise v6it!");
+            } else if (ussid[x2 / 10][y2 / 10] == 2 || ussid[x2 / 10][y2 / 10] == 1) {
+                throw new RuntimeException("Punase v6it!");
             }
-            else if (ussid[y1/10][x1/10]==2 || ussid[y2/10][x2/10]==1) {
-                return "error";
-            }
-        }*/
+        }
+
+
         return "";
     }
 }
