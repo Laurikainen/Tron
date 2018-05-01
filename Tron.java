@@ -53,7 +53,7 @@ public class Tron {
         x2 += kaks.getSpeedX();
         y2 += kaks.getSpeedY();
 
-        
+
         //Mängualas olemise kontroll
         if ((x1<0 || x1>590 || y1<0 || y1>590)&&(x2<0 || x2>590 || y2<0 || y2>590)) newGame("Viik!", lava);
         else if (x1<0 || x1>590 || y1<0 || y1>590) newGame("Rohelise võit!", lava);
@@ -77,7 +77,7 @@ public class Tron {
     private void newGame(String voitja, Stage lava){
         running = false;
         StartExit nextGame = new StartExit();
-        nextGame.tekst = voitja;
+        nextGame.setTekst(voitja);
         nextGame.start(lava);
     }
 }

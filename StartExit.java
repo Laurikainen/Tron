@@ -17,7 +17,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class StartExit extends Application {
-    public String tekst = "Tron";
+    private String tekst = "Tron";
+
+    public void setTekst(String tekst) {
+        this.tekst = tekst;
+    }
 
     //Start ja exit interface
     @Override
