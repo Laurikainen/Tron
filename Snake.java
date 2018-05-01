@@ -122,7 +122,7 @@ public class Snake extends Application {
                     throw new RuntimeException("Interrupted!: " + e);
                 }
                 Platform.runLater(() -> {
-                    //Run this again
+                    //Run this again later
                     runner(game, lava);
                 });
             });
