@@ -117,7 +117,7 @@ public class Snake extends Application {
             Thread thread = new Thread(() -> {
                 //Delay time between movement steps
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(50);
                 } catch (InterruptedException e) {
                     throw new RuntimeException("Interrupted!: " + e);
                 }
