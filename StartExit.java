@@ -17,6 +17,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class StartExit extends Application {
+    public String tekst = "Tron";
 
     //Start ja exit interface
     @Override
@@ -33,8 +34,13 @@ public class StartExit extends Application {
         lava.setScene(scene);
 
         //Mängu pealkirja lisamine
-        Label nimi = new Label("Tron");
-        nimi.setFont(Font.font("Algerian", FontWeight.BOLD, 99));
+        Label nimi = new Label(tekst);
+        if (tekst.equals("Tron")) {
+            nimi.setFont(Font.font("Algerian", FontWeight.BOLD, 99));
+        }
+        else{
+            nimi.setFont(Font.font("Algerian", FontWeight.BOLD, 50));
+        }
         nimi.setTextFill(Color.WHITE);
 
         //Alustamise nupu tegemine
@@ -48,7 +54,7 @@ public class StartExit extends Application {
             try {
                 keyCodes(lava);
             } catch (FileNotFoundException e1) {
-                e1.printStackTrace();
+                throw new RuntimeException(e1);
             }
         });
 

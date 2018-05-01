@@ -7,10 +7,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -22,8 +18,9 @@ public class Snake extends Application {
 
     Group juur = new Group();
     Scene scene = new Scene(juur,600, 600);
-
+/*
     ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
+
 
     public void onEnable(Tron game) {
         System.out.println("start");
@@ -41,7 +38,7 @@ public class Snake extends Application {
                 2, 2, TimeUnit.SECONDS);
         System.out.println("stop");
     }
-
+    */
 
 
     @Override
@@ -87,7 +84,7 @@ public class Snake extends Application {
         });
 
         // update snakes every second
-        runner(game);
+        runner(game, lava);
 
 
         //Lava suuruse muutmise võimatuks tegemine ja lava kuvamine
@@ -113,25 +110,23 @@ public class Snake extends Application {
     }
 
     //Update after certain interval
-    private void runner(Tron game){
-        try {
-            game.oota();
+    private void runner(Tron game, Stage lava){
+        game.oota(lava);
+        if (game.running) {
             liikumine(game.getX1(), game.getY1(), game.getX2(), game.getY2());
             Thread thread = new Thread(() -> {
+                //Delay time between movement steps
                 try {
                     Thread.sleep(100);
-                } catch (InterruptedException exc) {
-                    throw new Error("Unexpected interruption", exc);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException("Interrupted!: " + e);
                 }
                 Platform.runLater(() -> {
-                    runner(game);
+                    //Run this again
+                    runner(game, lava);
                 });
             });
-            thread.setDaemon(true);
             thread.start();
-        }
-        catch (Exception e){
-            e.printStackTrace();
         }
     }
 
