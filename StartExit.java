@@ -40,17 +40,17 @@ public class StartExit extends Application {
         //Mängu pealkirja lisamine
         Label nimi = new Label(tekst);
         if (tekst.equals("Tron")) {
-            nimi.setFont(Font.font("Algerian", FontWeight.BOLD, 99));
+            nimi.setFont(Font.font("Calibri", FontWeight.BOLD, 99));
         }
         else{
-            nimi.setFont(Font.font("Algerian", FontWeight.BOLD, 50));
+            nimi.setFont(Font.font("Calibri", FontWeight.BOLD, 50));
         }
         nimi.setTextFill(Color.WHITE);
 
         //Alustamise nupu tegemine
         Button start = new Button("Start");
         start.setStyle("-fx-base: #0645aa;");
-        Font font1 = Font.font( "Algerian", FontWeight.BOLD, 40 );
+        Font font1 = Font.font( "Calibri", FontWeight.BOLD, 40 );
         start.setFont(font1);
 
         //Mis juhtub kui start nupule vajutada
@@ -65,7 +65,7 @@ public class StartExit extends Application {
         //Lõpetamise nupu tegemine
         Button exit = new Button("Exit");;
         exit.setStyle("-fx-base: #0645aa;");
-        Font font2 = Font.font( "Algerian", FontWeight.BOLD, 40 );
+        Font font2 = Font.font( "Calibri", FontWeight.BOLD, 40 );
         exit.setFont(font2);
 
         //Mis juhtub kui vajutada exit

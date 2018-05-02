@@ -18,27 +18,6 @@ public class Snake extends Application {
 
     Group juur = new Group();
     Scene scene = new Scene(juur,600, 600);
-/*
-    ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
-
-
-    public void onEnable(Tron game) {
-        System.out.println("start");
-        scheduledExecutorService.scheduleWithFixedDelay(() -> {
-                    try{
-                        game.oota();
-                        liikumine(game.getX1(), game.getY1(), game.getX2(), game.getY2());
-                    }
-                    catch (Exception e){
-                        System.out.println(e.toString());
-                        e.printStackTrace();
-                    }
-
-                },
-                2, 2, TimeUnit.SECONDS);
-        System.out.println("stop");
-    }
-    */
 
 
     @Override
