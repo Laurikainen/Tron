@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -21,7 +22,7 @@ public class Snake extends Application {
 
 
     @Override
-    public void start(Stage lava)  {
+    public void start(Stage lava) throws FileNotFoundException {
         game = new Tron();
         game.setSuund();
 
@@ -62,12 +63,9 @@ public class Snake extends Application {
 
         });
 
-        // update snakes every second
+        //Uuendab usside asukohta iga sekund
         runner(game, lava);
 
-
-        //Lava suuruse muutmise võimatuks tegemine ja lava kuvamine
-        lava.setResizable(false);
         lava.setScene(scene);
         lava.show();
     }
@@ -89,7 +87,7 @@ public class Snake extends Application {
     }
 
     //Update after certain interval
-    private void runner(Tron game, Stage lava){
+    private void runner(Tron game, Stage lava) throws FileNotFoundException {
         game.oota(lava);
         if (game.running) {
             liikumine(game.getX1(), game.getY1(), game.getX2(), game.getY2());
@@ -102,7 +100,11 @@ public class Snake extends Application {
                 }
                 Platform.runLater(() -> {
                     //Run this again later
-                    runner(game, lava);
+                    try {
+                        runner(game, lava);
+                    } catch (FileNotFoundException e) {
+                        System.out.println("Taustapilti ei leitud!");
+                    }
                 });
             });
             thread.start();

@@ -1,5 +1,6 @@
-import javafx.application.Platform;
 import javafx.stage.Stage;
+
+import java.io.FileNotFoundException;
 
 public class Tron {
     public boolean running = true;
@@ -46,7 +47,7 @@ public class Tron {
 
 
     //Annab ussidele uued koordinaadid ja kontrollib, kas ussil on võimalik edasi liikuda
-    public String oota(Stage lava) {
+    public String oota(Stage lava) throws FileNotFoundException {
 
         x1 += yks.getSpeedX();
         y1 += yks.getSpeedY();
@@ -74,7 +75,7 @@ public class Tron {
         return "";
     }
 
-    private void newGame(String voitja, Stage lava){
+    private void newGame(String voitja, Stage lava) throws FileNotFoundException {
         running = false;
         StartExit nextGame = new StartExit();
         nextGame.setTekst(voitja);

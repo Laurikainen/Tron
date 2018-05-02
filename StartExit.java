@@ -17,18 +17,21 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class StartExit extends Application {
-    private String tekst = "Tron";
+    private String tekst;
 
-    public void setTekst(String tekst) {
-        this.tekst = tekst;
-    }
+    public void setTekst(String tekst) { this.tekst = tekst; }
 
     //Start ja exit interface
     @Override
-    public void start(Stage lava)  {
+    public void start(Stage lava) throws FileNotFoundException {
         lava.setTitle( "Tron" );
 
-        Group juur = new Group();
+        //Taustapildi lugemine
+        Image image = new Image(new FileInputStream("tron.gif"));
+        //Taustapildi lisamine
+        ImageView imageView = new ImageView(image);
+        Group juur = new Group(imageView);
+
         Scene scene = new Scene(juur, 600, 600);
         scene.setFill(Color.BLACK);
         VBox vbox = new VBox(15);
@@ -37,20 +40,20 @@ public class StartExit extends Application {
 
         lava.setScene(scene);
 
-        //Mängu pealkirja lisamine
+        //Mängu nime lisamine
+        Label tron = new Label("Tron");
+        tron.setFont(Font.font("Calibri", FontWeight.BOLD, 120));
+        tron.setTextFill(Color.WHITE);
+
+        //Mängu seisu lisamine
         Label nimi = new Label(tekst);
-        if (tekst.equals("Tron")) {
-            nimi.setFont(Font.font("Calibri", FontWeight.BOLD, 99));
-        }
-        else{
-            nimi.setFont(Font.font("Calibri", FontWeight.BOLD, 50));
-        }
+        nimi.setFont(Font.font("Calibri", FontWeight.BOLD, 50));
         nimi.setTextFill(Color.WHITE);
 
         //Alustamise nupu tegemine
         Button start = new Button("Start");
         start.setStyle("-fx-base: #0645aa;");
-        Font font1 = Font.font( "Calibri", FontWeight.BOLD, 40 );
+        Font font1 = Font.font( "Calibri", FontWeight.BOLD, 50 );
         start.setFont(font1);
 
         //Mis juhtub kui start nupule vajutada
@@ -58,26 +61,27 @@ public class StartExit extends Application {
             try {
                 keyCodes(lava);
             } catch (FileNotFoundException e1) {
-                throw new RuntimeException(e1);
+                throw new RuntimeException("Taustapilti ei leitud!");
             }
         });
 
         //Lõpetamise nupu tegemine
-        Button exit = new Button("Exit");;
+        Button exit = new Button("Exit");
         exit.setStyle("-fx-base: #0645aa;");
-        Font font2 = Font.font( "Calibri", FontWeight.BOLD, 40 );
+        Font font2 = Font.font( "Calibri", FontWeight.BOLD, 50 );
         exit.setFont(font2);
 
         //Mis juhtub kui vajutada exit
         exit.setOnAction(e -> Platform.exit());
 
         //Vboxi lisamine, et saaks kõik nupud keskele
-        vbox.getChildren().addAll(nimi, start, exit);
+        vbox.getChildren().addAll(tron, start, exit, nimi);
         vbox.setAlignment(Pos.CENTER);
         bp.setCenter(vbox);
 
         juur.getChildren().add(bp);
 
+        lava.setResizable(false);
         lava.show();
     }
 
@@ -86,7 +90,7 @@ public class StartExit extends Application {
     private void keyCodes(Stage lava) throws FileNotFoundException {
 
         //Taustapildi lugemine
-        Image image = new Image(new FileInputStream("pilt.jpg"));
+        Image image = new Image(new FileInputStream("pilt.gif"));
         //Taustapildi lisamine
         ImageView imageView = new ImageView(image);
         Group juur = new Group(imageView);
@@ -97,14 +101,21 @@ public class StartExit extends Application {
         scene.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER) {
                 Snake uus_mäng = new Snake();
-                uus_mäng.start(lava);
+                try {
+                    uus_mäng.start(lava);
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException("Taustapilti ei leitud!");
+                }
             }
             else if (keyEvent.getCode() == KeyCode.ESCAPE) {
                 StartExit uus_mäng = new StartExit();
-                uus_mäng.start(lava);
+                try {
+                    uus_mäng.start(lava);
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException("Taustapilti ei leitud!");
+                }
             }
         });
-
         lava.setScene(scene);
     }
 }
