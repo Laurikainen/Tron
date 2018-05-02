@@ -73,10 +73,10 @@ public class Snake extends Application {
     public void liikumine(int x1, int y1, int x2, int y2) {
 
         //Esimese ussi keha joonistamine
-        Rectangle rk1 = new Rectangle(x1,y1,10,10);
+        Rectangle rk1 = new Rectangle(x1,y1,9,9);
         rk1.setFill(Color.RED);
         //Teise ussi keha joonistamine
-        Rectangle rk2 = new Rectangle(x2,y2,10,10);
+        Rectangle rk2 = new Rectangle(x2,y2,9,9);
         rk2.setFill(Color.GREEN);
 
         //Usside kordinaatide lisamine massiivi
