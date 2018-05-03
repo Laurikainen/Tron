@@ -1,5 +1,4 @@
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
 
 public class Tron {
@@ -11,7 +10,6 @@ public class Tron {
     //Mängijad Player klassi jaoks
     Player yks = new Player();
     Player kaks = new Player();
-    Snake uss = new Snake();
 
     //Mängijate alguskoordinaadid
     private int x1 = 570;
@@ -45,7 +43,6 @@ public class Tron {
         }
     }
 
-
     //Annab ussidele uued koordinaadid ja kontrollib, kas ussil on võimalik edasi liikuda
     public String oota(Stage lava) throws FileNotFoundException {
 
@@ -63,7 +60,10 @@ public class Tron {
 
 
         else { //Usside kokkupõrkamise kontroll
-            if (ussid[x1 / 10][y1 / 10] == 1) {
+            if (ussid[x1 / 10][y1 / 10] == 1 && ussid[x2 / 10][y2 / 10] == 1) {
+                newGame("Viik!", lava);
+            }
+            else if (ussid[x1 / 10][y1 / 10] == 1) {
                 newGame("Rohelise võit!", lava);
             } else if (ussid[x2 / 10][y2 / 10] == 1) {
                 newGame("Punase võit!", lava);
