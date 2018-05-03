@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 
 public class Snake {
+    private boolean k2ikl2bi = false;
 
     Tron game;
     Group juur = new Group();
@@ -24,31 +25,34 @@ public class Snake {
 
         //Kontrollimine, kas klaviatuuril on vajutatud kummagi ussi liikumiseks mõeldud nuppu
         scene.setOnKeyPressed(keyEvent -> {
-            //Esimese ussi liikumine
-            if (keyEvent.getCode() == KeyCode.UP) {
-                game.yks.setSuund("yles");
-            }
-            else if (keyEvent.getCode() == KeyCode.DOWN) {
-                game.yks.setSuund("alla");
-            }
-            else if (keyEvent.getCode() == KeyCode.LEFT) {
-                game.yks.setSuund("vasak");
-            }
-            else if (keyEvent.getCode() == KeyCode.RIGHT) {
-                game.yks.setSuund("parem");
-            }
-            //Teise ussi liikumine
-            if (keyEvent.getCode() == KeyCode.W) {
-                game.kaks.setSuund("yles");
-            }
-            else if (keyEvent.getCode() == KeyCode.S) {
-                game.kaks.setSuund("alla");
-            }
-            else if (keyEvent.getCode() == KeyCode.A) {
-                game.kaks.setSuund("vasak");
-            }
-            else if (keyEvent.getCode() == KeyCode.D) {
-                game.kaks.setSuund("parem");
+            if(!k2ikl2bi) {//Esimese ussi liikumine
+                if (keyEvent.getCode() == KeyCode.UP) {
+                    game.yks.setSuund("yles");
+                    k2ikl2bi = true;
+                } else if (keyEvent.getCode() == KeyCode.DOWN) {
+                    game.yks.setSuund("alla");
+                    k2ikl2bi = true;
+                } else if (keyEvent.getCode() == KeyCode.LEFT) {
+                    game.yks.setSuund("vasak");
+                    k2ikl2bi = true;
+                } else if (keyEvent.getCode() == KeyCode.RIGHT) {
+                    game.yks.setSuund("parem");
+                    k2ikl2bi = true;
+                }
+                //Teise ussi liikumine
+                if (keyEvent.getCode() == KeyCode.W) {
+                    game.kaks.setSuund("yles");
+                    k2ikl2bi = true;
+                } else if (keyEvent.getCode() == KeyCode.S) {
+                    game.kaks.setSuund("alla");
+                    k2ikl2bi = true;
+                } else if (keyEvent.getCode() == KeyCode.A) {
+                    game.kaks.setSuund("vasak");
+                    k2ikl2bi = true;
+                } else if (keyEvent.getCode() == KeyCode.D) {
+                    game.kaks.setSuund("parem");
+                    k2ikl2bi = true;
+                }
             }
             //Kontrollimine, et kas on võimalik ussil edasi liikuda ja kui on siis tema liigutamine
 
@@ -79,6 +83,7 @@ public class Snake {
         game.oota(lava);
         if (game.running) {
             liikumine(game.getX1(), game.getY1(), game.getX2(), game.getY2());
+            k2ikl2bi = false;
             Thread thread = new Thread(() -> {
                 //Delay time between movement steps
                 try {
@@ -98,5 +103,4 @@ public class Snake {
             thread.start();
         }
     }
-
 }
