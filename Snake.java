@@ -20,7 +20,6 @@ public class Snake extends Application {
     Group juur = new Group();
     Scene scene = new Scene(juur,600, 600);
 
-
     @Override
     public void start(Stage lava) throws FileNotFoundException {
         game = new Tron();

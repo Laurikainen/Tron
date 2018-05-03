@@ -17,11 +17,11 @@ public class Player {
             this.speedX = -10;
             this.speedY = 0;
         }
-        else if (suund.equals("yles") && speedY != -10){
+        else if (suund.equals("yles") && speedY != 10){
             this.speedX = 0;
             this.speedY = -10;
         }
-        else if (suund.equals("alla") && speedY != 10){
+        else if (suund.equals("alla") && speedY != -10){
             this.speedX = 0;
             this.speedY = 10;
         }

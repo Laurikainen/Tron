@@ -65,7 +65,6 @@ public class Tron {
         else { //Usside kokkupõrkamise kontroll
             if (ussid[x1 / 10][y1 / 10] == 1) {
                 newGame("Rohelise võit!", lava);
-                //throw new RuntimeException("Rohelise v6it!");
             } else if (ussid[x2 / 10][y2 / 10] == 1) {
                 newGame("Punase võit!", lava);
             }
