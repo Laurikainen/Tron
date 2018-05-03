@@ -1,4 +1,3 @@
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -6,20 +5,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
-public class Snake extends Application {
+public class Snake {
 
     Tron game;
-
     Group juur = new Group();
     Scene scene = new Scene(juur,600, 600);
 
-    @Override
     public void start(Stage lava) throws FileNotFoundException {
         game = new Tron();
         game.setSuund();
@@ -69,17 +62,14 @@ public class Snake extends Application {
     }
 
     public void liikumine(int x1, int y1, int x2, int y2) {
-
         //Esimese ussi keha joonistamine
         Rectangle rk1 = new Rectangle(x1,y1,9,9);
         rk1.setFill(Color.RED);
         //Teise ussi keha joonistamine
         Rectangle rk2 = new Rectangle(x2,y2,9,9);
         rk2.setFill(Color.GREEN);
-
         //Usside kordinaatide lisamine massiivi
         game.lisamine(x1, y1, x2, y2);
-
         //Juurele ristkülikute lisamine, et need oleks laval nähtavad
         juur.getChildren().addAll(rk1, rk2);
     }

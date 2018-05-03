@@ -53,24 +53,15 @@ public class Tron {
 
 
         //Mängualas olemise kontroll
-        if ((x1<0 || x1>590 || y1<0 || y1>590)&&(x2<0 || x2>590 || y2<0 || y2>590)) newGame("Viik!", lava);
-        else if (x1<0 || x1>590 || y1<0 || y1>590) newGame("Rohelise võit!", lava);
-        else if (x2<0 || x2>590 || y2<0 || y2>590) newGame("Punase võit!", lava);
-        else if (x2==x1 && y1==y2) newGame("Viik!", lava);
-
-
+        if ((x1<0 || x1>590 || y1<0 || y1>590)&&(x2<0 || x2>590 || y2<0 || y2>590)) newGame("Draw!", lava);
+        else if (x1<0 || x1>590 || y1<0 || y1>590) newGame("Green won!", lava);
+        else if (x2<0 || x2>590 || y2<0 || y2>590) newGame("Red won!", lava);
+        else if (x2==x1 && y1==y2) newGame("Draw!", lava);
         else { //Usside kokkupõrkamise kontroll
-            if (ussid[x1 / 10][y1 / 10] == 1 && ussid[x2 / 10][y2 / 10] == 1) {
-                newGame("Viik!", lava);
-            }
-            else if (ussid[x1 / 10][y1 / 10] == 1) {
-                newGame("Rohelise võit!", lava);
-            } else if (ussid[x2 / 10][y2 / 10] == 1) {
-                newGame("Punase võit!", lava);
-            }
+            if (ussid[x1 / 10][y1 / 10] == 1 && ussid[x2 / 10][y2 / 10] == 1) newGame("Draw!", lava);
+            else if (ussid[x1 / 10][y1 / 10] == 1) newGame("Green won!", lava);
+            else if (ussid[x2 / 10][y2 / 10] == 1) newGame("Red won!", lava);
         }
-
-
         return "";
     }
 

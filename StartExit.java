@@ -85,7 +85,6 @@ public class StartExit extends Application {
         lava.show();
     }
 
-
     //Start nupule vajutamise tagajärg
     private void keyCodes(Stage lava) throws FileNotFoundException {
 
